@@ -306,7 +306,7 @@ function library:Window(name)
 
         ToggleFiller.Name = "ToggleFiller"
         ToggleFiller.Parent = ToggleButton
-        ToggleFiller.BackgroundColor3 = Color3.fromRGB(68, 189, 50)
+        ToggleFiller.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
         ToggleFiller.BorderColor3 = Color3.fromRGB(47, 54, 64)
         ToggleFiller.Position = UDim2.new(0, 5, 0, 5)
         ToggleFiller.Size = UDim2.new(0, 12, 0, 12)
@@ -479,7 +479,7 @@ function library:Window(name)
 
         SilderFiller.Name = "SilderFiller"
         SilderFiller.Parent = Slider
-        SilderFiller.BackgroundColor3 = Color3.fromRGB(76, 209, 55)
+        SilderFiller.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
         SilderFiller.BorderColor3 = Color3.fromRGB(47, 54, 64)
         SilderFiller.Size = UDim2.new(0, (Slider.Size.X.Offset - 5) * ((default - min)/(max-min)), 0, 6)
         SilderFiller.ZIndex = 2 + zindex
