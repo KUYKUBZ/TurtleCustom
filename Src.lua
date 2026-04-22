@@ -159,7 +159,7 @@ function library:Window(name)
     Minimise.Size = UDim2.new(0, 22, 0, 22)
     Minimise.ZIndex = 7 + zindex
     Minimise.Font = Enum.Font.SourceSansLight
-    Minimise.Text = "_"
+    Minimise.Text = "-"
     Minimise.TextColor3 = Color3.fromRGB(0, 0, 0)
     Minimise.TextSize = 20.000
 
