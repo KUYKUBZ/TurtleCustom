@@ -121,15 +121,20 @@ function library:Window(name)
 
     local UICorner = Instance.new("UICorner")
     UICorner.Parent = UiWindow
+    UICorner.CornerRadius = UDim.new(0, 4)
 
     local Header = Instance.new("Frame")
     Header.Name = "Header"
     Header.Parent = UiWindow
-    Header.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Header.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Header.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+    Header.BorderColor3 = Color3.fromRGB(37, 37, 37)
     Header.Position = UDim2.new(0, 0, -0.0202544238, 0)
     Header.Size = UDim2.new(0, 207, 0, 26)
     Header.ZIndex = 5 + zindex
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.Parent = Header
+    UICorner.CornerRadius = UDim.new(0, 4)
 
     local HeaderText = Instance.new("TextLabel")
     HeaderText.Name = "HeaderText"
@@ -141,14 +146,14 @@ function library:Window(name)
     HeaderText.ZIndex = 6 + zindex
     HeaderText.Font = Enum.Font.SourceSans
     HeaderText.Text = name or "Window"
-    HeaderText.TextColor3 = Color3.fromRGB(47, 54, 64)
+    HeaderText.TextColor3 = Color3.fromRGB(255, 255, 255)
     HeaderText.TextSize = 17.000
 
     local Minimise = Instance.new("TextButton")
     local Window = Instance.new("Frame")
     Minimise.Name = "Minimise"
     Minimise.Parent = Header
-    Minimise.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Minimise.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
     Minimise.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Minimise.Position = UDim2.new(0, 185, 0, 2)
     Minimise.Size = UDim2.new(0, 22, 0, 22)
@@ -157,10 +162,16 @@ function library:Window(name)
     Minimise.Text = "_"
     Minimise.TextColor3 = Color3.fromRGB(0, 0, 0)
     Minimise.TextSize = 20.000
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.Parent = Minimise
+    UICorner.CornerRadius = UDim.new(0, 4)
+
+
     Minimise.MouseButton1Up:connect(function()
         Window.Visible = not Window.Visible
 	if Window.Visible then
-		Minimise.Text = "_"
+		Minimise.Text = "-"
 	else
 		Minimise.Text = "+"
 	end
@@ -168,11 +179,16 @@ function library:Window(name)
 
     Window.Name = "Window"
     Window.Parent = Header
-    Window.BackgroundColor3 = Color3.fromRGB(47, 54, 64)
-    Window.BorderColor3 = Color3.fromRGB(47, 54, 64)
+    Window.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+    Window.BorderColor3 = Color3.fromRGB(31, 31, 31)
     Window.Position = UDim2.new(0, 0, 0, 0)
     Window.Size = UDim2.new(0, 207, 0, 33)
     Window.ZIndex = 1 + zindex
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.Parent = Window
+    UICorner.CornerRadius = UDim.new(0, 4)
+
 
     local functions = {}
     sizes[winCount] = 33
@@ -201,6 +217,10 @@ function library:Window(name)
         Button.TextWrapped = true
         Button.Text = name
         Button.MouseButton1Down:Connect(callback)
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = Button
+        UICorner.CornerRadius = UDim.new(0, 4)
 
         pastSliders[winCount] = false
     end
@@ -280,6 +300,10 @@ function library:Window(name)
             callback(ToggleFiller.Visible)
         end)
 
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = ToggleButton
+        UICorner.CornerRadius = UDim.new(0, 4)
+
         ToggleFiller.Name = "ToggleFiller"
         ToggleFiller.Parent = ToggleButton
         ToggleFiller.BackgroundColor3 = Color3.fromRGB(68, 189, 50)
@@ -289,6 +313,11 @@ function library:Window(name)
         ToggleFiller.Visible = on
         ToggleFiller.ZIndex = 2 + zindex
         pastSliders[winCount] = false
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = ToggleFiller
+        UICorner.CornerRadius = UDim.new(0, 4)
+
     end
     function functions:Box(text, callback)
         local callback = callback or function() end
@@ -312,6 +341,11 @@ function library:Window(name)
         TextBox.TextSize = 16.000
         TextBox.TextStrokeColor3 = Color3.fromRGB(245, 246, 250)
         TextBox.ZIndex = 2 + zindex
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = TextBox
+        UICorner.CornerRadius = UDim.new(0, 4)
+
         TextBox:GetPropertyChangedSignal('Text'):connect(function()
             callback(TextBox.Text, false)
         end)
@@ -530,6 +564,10 @@ function library:Window(name)
             end
             DropdownFrame.Visible = not DropdownFrame.Visible
         end)
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = Dropdown
+        UICorner.CornerRadius = UDim.new(0, 4)
 
         DownSign.Name = "DownSign"
         DownSign.Parent = Dropdown
