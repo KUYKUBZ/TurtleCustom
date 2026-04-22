@@ -12,6 +12,10 @@ window:Toggle("Example toggle", true, function(bool)
     print(bool) -- bool is true or false depending on the state of the toggle
 end)
 
+window:ColorPicker("Color Picker", Color3.fromRGB(255, 255, 255), function(color)
+   print(color)
+end)
+
 -- Name of slider, minimum value, maximum value, default value, callback
 
 window:Slider("Example Slider",0,100,20, function(value)
@@ -41,6 +45,7 @@ end)
 -- Name
 
 dropdown:Button("New button")
+dropdown:Remove("Button")
 
 -- Key
 
