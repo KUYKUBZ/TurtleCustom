@@ -650,6 +650,20 @@ function library:Window(name)
             end
         end
 
+function dropFunctions:RemoveAll()
+    for _, v in pairs(DropdownFrame:GetChildren()) do
+        if v:IsA("TextButton") then
+            v:Destroy()
+        end
+    end
+
+    canvasSize = 0 
+    
+    DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, 0)
+    DropdownFrame.Size = UDim2.new(0, 182, 0, 0)
+    print("All buttons removed and canvas reset.")
+end
+		
         for i,v in pairs(buttons) do
             dropFunctions:Button(v)
         end
