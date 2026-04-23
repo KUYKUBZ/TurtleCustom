@@ -619,9 +619,13 @@ function library:Window(name)
             canvasSize = canvasSize + 27
             DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
             if #DropdownFrame:GetChildren() == 0 then
-			canvasSize = 0
-            DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
-            end
+				canvasSize = 0
+                DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, 0)
+                DropdownFrame.Size = UDim2.new(0, 182, 0, 0) 
+			else
+            if #DropdownFrame:GetChildren() < 8 then
+                DropdownFrame.Size = UDim2.new(0, 182, 0, #DropdownFrame:GetChildren() * 27)
+			end
             Button_2.MouseButton1Up:Connect(function()
                 callback(name)
 		DropdownFrame.Visible = false
