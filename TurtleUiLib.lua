@@ -10,8 +10,8 @@ local destroyed
 
 local colorPickers = {}
 
-if game.CoreGui:FindFirstChildOfClass('ScreenGUI').UiWindow then
-    game.CoreGui:FindFirstChildOfClass('ScreenGUI').UiWindow.Parent:Destroy()
+if game.CoreGui:FindFirstChildOfClass('ScreenGUI'):FindFirstChild("UiWindow") then
+    game.CoreGui:FindFirstChildOfClass('ScreenGUI'):FindFirstChild("UiWindow").Parent:Destroy()
     destroyed = true
 end
 
