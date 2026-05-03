@@ -6,14 +6,14 @@ local windows = {}
 local pastSliders = {}
 local dropdowns = {}
 local dropdownSizes = {}
-local destroyed
+-- local destroyed
 
 local colorPickers = {}
 
-if game.CoreGui:FindFirstChild('TurtleUiLib') then
-    game.CoreGui:FindFirstChild('TurtleUiLib'):Destroy()
-    destroyed = true
-end
+-- if game.CoreGui:FindFirstChild('TurtleUiLib') then
+--     game.CoreGui:FindFirstChild('TurtleUiLib'):Destroy()
+--     destroyed = true
+-- end
 
 function Lerp(a, b, c)
     return a + ((b - a) * c)
@@ -101,7 +101,10 @@ function library:Keybind(key)
     end)
 end
 
-function library:Window(name) 
+function library:Window(name, ScreenGuiName) 
+
+    TurtleUiLib.Name = ScreenGuiName
+
     windowCount = windowCount + 1
     local winCount = windowCount
     local zindex = winCount * 7
@@ -444,6 +447,10 @@ function library:Window(name)
         Slider.InputBegan:Connect(SliderMovement) 
         Slider.InputEnded:Connect(SliderEnd)      
 
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = Slider
+        UICorner.CornerRadius = UDim.new(0, 4)
+
         SliderButton.Position = UDim2.new(0, (Slider.Size.X.Offset - 5) * ((default - min)/(max-min)), -1.333337, 0)
         SliderButton.Name = "SliderButton"
         SliderButton.Parent = Slider
@@ -452,7 +459,11 @@ function library:Window(name)
         SliderButton.Size = UDim2.new(0, 6, 0, 22)
         SliderButton.ZIndex = 3 + zindex
         SliderButton.InputBegan:Connect(SliderMovement)
-        SliderButton.InputEnded:Connect(SliderEnd)    
+        SliderButton.InputEnded:Connect(SliderEnd)   
+        
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = SliderButton
+        UICorner.CornerRadius = UDim.new(0, 4)
 
         Current.Name = "Current"
         Current.Parent = SliderButton
@@ -484,6 +495,10 @@ function library:Window(name)
         SilderFiller.Size = UDim2.new(0, (Slider.Size.X.Offset - 5) * ((default - min)/(max-min)), 0, 6)
         SilderFiller.ZIndex = 2 + zindex
         SilderFiller.BorderMode = Enum.BorderMode.Inset
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = SilderFiller
+        UICorner.CornerRadius = UDim.new(0, 4)
 
         Min.Name = "Min"
         Min.Parent = Slider
