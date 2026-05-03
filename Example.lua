@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/KUYKUBZ/TurtleCustom/refs/heads/main/TurtleUiLib.lua"))()
-local window = library:Window("Window")
+local window = library:Window("Window", "For Tab")
 -- Name of button, callback
 
 window:Button("Button name", function()
