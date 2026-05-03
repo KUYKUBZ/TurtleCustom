@@ -610,10 +610,6 @@ function library:Window(name)
         DropdownFrame.ScrollingDirection = Enum.ScrollingDirection.Y
         DropdownFrame.ScrollBarImageColor3 = Color3.fromRGB(220, 221, 225)
 
-        local UICorner = Instance.new("UICorner")
-        UICorner.Parent = DropdownFrame
-        UICorner.CornerRadius = UDim.new(0, 4)
-
         table.insert(dropdowns, DropdownFrame)
         local dropFunctions = {}
         local canvasSize = 0
@@ -636,6 +632,11 @@ function library:Window(name)
             Button_2.TextWrapped = true
             canvasSize = canvasSize + 27
             DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
+
+            local UICorner = Instance.new("UICorner")
+            UICorner.Parent = Button_2
+            UICorner.CornerRadius = UDim.new(0, 4)
+
             if #DropdownFrame:GetChildren() < 8 then
             DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
             end
