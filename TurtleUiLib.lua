@@ -10,8 +10,8 @@ local destroyed
 
 local colorPickers = {}
 
-if game.CoreGui:FindFirstChildOfClass('ScreenGUI'):FindFirstChild("UiWindow") then
-    game.CoreGui:FindFirstChildOfClass('ScreenGUI'):FindFirstChild("UiWindow").Parent:Destroy()
+if game.CoreGui:FindFirstChild('TurtleUiLib') then
+    game.CoreGui:FindFirstChild('TurtleUiLib'):Destroy()
     destroyed = true
 end
 
@@ -101,9 +101,7 @@ function library:Keybind(key)
     end)
 end
 
-function library:Window(name, ScreenGuiName) 
-
-    TurtleUiLib.Name = ScreenGuiName
+function library:Window(name) 
 
     windowCount = windowCount + 1
     local winCount = windowCount
