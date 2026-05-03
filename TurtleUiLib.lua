@@ -6,14 +6,14 @@ local windows = {}
 local pastSliders = {}
 local dropdowns = {}
 local dropdownSizes = {}
--- local destroyed
+local destroyed
 
 local colorPickers = {}
 
--- if game.CoreGui:FindFirstChild('TurtleUiLib') then
---     game.CoreGui:FindFirstChild('TurtleUiLib'):Destroy()
---     destroyed = true
--- end
+if game.CoreGui:FindFirstChildOfClass('ScreenGUI').UiWindow then
+    game.CoreGui:FindFirstChildOfClass('ScreenGUI').UiWindow.Parent:Destroy()
+    destroyed = true
+end
 
 function Lerp(a, b, c)
     return a + ((b - a) * c)
