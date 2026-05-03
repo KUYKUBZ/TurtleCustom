@@ -609,6 +609,11 @@ function library:Window(name)
         DropdownFrame.ZIndex = 5 + zindex
         DropdownFrame.ScrollingDirection = Enum.ScrollingDirection.Y
         DropdownFrame.ScrollBarImageColor3 = Color3.fromRGB(220, 221, 225)
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.Parent = DropdownFrame
+        UICorner.CornerRadius = UDim.new(0, 4)
+
         table.insert(dropdowns, DropdownFrame)
         local dropFunctions = {}
         local canvasSize = 0
@@ -663,19 +668,19 @@ function library:Window(name)
             end
         end
 
-function dropFunctions:RemoveAll()
-    for _, v in pairs(DropdownFrame:GetChildren()) do
-        if v:IsA("TextButton") then
-            v:Destroy()
-        end
-    end
+        function dropFunctions:RemoveAll()
+            for _, v in pairs(DropdownFrame:GetChildren()) do
+                if v:IsA("TextButton") then
+                    v:Destroy()
+                end
+            end
 
-    canvasSize = 0 
-    
-    DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, 0)
-    DropdownFrame.Size = UDim2.new(0, 182, 0, 0)
-    print("All buttons removed and canvas reset.")
-end
+            canvasSize = 0 
+            
+            DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, 0)
+            DropdownFrame.Size = UDim2.new(0, 182, 0, 0)
+            print("All buttons removed and canvas reset.")
+        end
 		
         for i,v in pairs(buttons) do
             dropFunctions:Button(v)
